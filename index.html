@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RaniVari Meat - We sell fresh meat</title>
+  <style>
+    .products-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    .product {
+      max-width: 200px;
+      padding: 20px;
+      margin: 10px;
+      background-color: #f2f2f2;
+      border: 2px solid #ccc;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header style="background-color: yellow;">
+    <h1 style="color: black;">RaniVari Meat</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="background-color: green;">
+    <div class="products-container">
+      <div class="product">
+        <img src="basa_fish.jpg" alt="Basa Fish">
+        <h2>Basa Fish</h2>
+        <p>Price per kg: $10.00</p>
+        <input type="number" id="basaQuantity" min="0" step="0.1" placeholder="Quantity (in kgs)">
+      </div>
+      <div class="product">
+        <img src="rupchand_fish.jpg" alt="Rupchand Fish">
+        <h2>Rupchand Fish</h2>
+        <p>Price per kg: $12.00</p>
+        <input type="number" id="rupchandQuantity" min="0" step="0.1" placeholder="Quantity (in kgs)">
+      </div>
+      <div class="product">
+        <img src="brown_crab.jpg" alt="Brown Crab">
+        <h2>Brown Crab</h2>
+        <p>Price per kg: $15.00</p>
+        <input type="number" id="brownCrabQuantity" min="0" step="0.1" placeholder="Quantity (in kgs)">
+      </div>
+      <div class="product">
+        <img src="prawns.jpg" alt="Prawns">
+        <h2>Prawns</h2>
+        <p>Price per kg: $8.00</p>
+        <input type="number" id="prawnsQuantity" min="0" step="0.1" placeholder="Quantity (in kgs)">
+      </div>
+      <!-- Add other products here -->
+    </div>
+
+    <div>
+      <h3 style="color: white;">Amount:</h3>
+      <div id="amountBox" style="background-color: blue; color: white;"></div>
+    </div>
+
+    <button id="checkoutButton" style="background-color: pink; border: 2px solid purple;">Checkout</button>
+    <div id="paymentDetailsPage" style="display: none; background-color: red; border: 2px solid black;">
+      <h2>Payment Details</h2>
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+      <button id="placeOrderButton" style="background-color: black; border: 2px solid blue;">Place Order</button>
+    </div>
+
+    <div id="confirmationPage" style="display: none;">
+      <h2>Thank You for Shopping!</h2>
+      <p>Your order is confirmed.</p>
+      <h3>Bill:</h3>
+      <div id="bill" style="background-color: yellow;"></div>
+    </div>
+  </main>
+
+  <footer style="background-color: green;">
+    <!-- Footer content goes here -->
+  </footer>
+
+  <script>
+    const checkoutButton = document.querySelector('#checkoutButton');
+    const paymentDetailsPage = document.querySelector('#paymentDetailsPage');
+    const placeOrderButton = document.querySelector('#placeOrderButton');
+    const confirmationPage = document.querySelector('#confirmationPage');
+    const bill = document.querySelector('#bill');
+    const products = [
+      { name: 'Basa Fish', price: 10.00, quantityInputId: 'basaQuantity'
